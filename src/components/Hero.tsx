@@ -1,4 +1,4 @@
-import { FlowingWaves, MeshBlob1, MeshBlob2, MeshBlob3 } from "./Decorations";
+import { MeshBlob1, MeshBlob3 } from "./Decorations";
 
 export default function Hero() {
 	return (
@@ -29,8 +29,8 @@ export default function Hero() {
 						</div>
 
 						<div className="v2-ascend-stack" aria-hidden="true">
-							{[1, 0.7, 0.45, 0.25, 0.1].map((opacity, i) => (
-								<div key={`ascend-${i}`} style={{ opacity }}>
+							{[1, 0.7, 0.45, 0.25, 0.1].map((opacity) => (
+								<div key={`ascend-${opacity}`} style={{ opacity }}>
 									ASCEND
 								</div>
 							))}

@@ -17,7 +17,7 @@ export function MeshBlob1({ className = "" }: { className?: string }) {
 			const y = 150 + Math.sin(rad) * (r + wobble);
 			points.push(`${a === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`);
 		}
-		paths.push(points.join(" ") + "Z");
+		paths.push(`${points.join(" ")}Z`);
 	}
 
 	return (
@@ -30,9 +30,9 @@ export function MeshBlob1({ className = "" }: { className?: string }) {
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
 		>
-			{paths.map((d, i) => (
+			{paths.map((d) => (
 				<path
-					key={d.slice(0, 20) + i}
+					key={d.slice(0, 30)}
 					d={d}
 					stroke="rgba(255,255,255,0.35)"
 					strokeWidth="0.6"
@@ -60,7 +60,7 @@ export function MeshBlob2({ className = "" }: { className?: string }) {
 			const y = 150 + Math.sin(rad) * (r + wobble);
 			points.push(`${a === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`);
 		}
-		paths.push(points.join(" ") + "Z");
+		paths.push(`${points.join(" ")}Z`);
 	}
 
 	return (
@@ -73,9 +73,9 @@ export function MeshBlob2({ className = "" }: { className?: string }) {
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
 		>
-			{paths.map((d, i) => (
+			{paths.map((d) => (
 				<path
-					key={d.slice(0, 20) + i}
+					key={d.slice(0, 30)}
 					d={d}
 					stroke="rgba(255,255,255,0.3)"
 					strokeWidth="0.6"
@@ -107,9 +107,9 @@ export function FlowingWaves({ className = "" }: { className?: string }) {
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
 		>
-			{paths.map((d, i) => (
+			{paths.map((d) => (
 				<path
-					key={d.slice(0, 20) + i}
+					key={d.slice(0, 30)}
 					d={d}
 					stroke="rgba(255,255,255,0.25)"
 					strokeWidth="0.7"
@@ -137,7 +137,7 @@ export function MeshBlob3({ className = "" }: { className?: string }) {
 			const y = 160 + Math.sin(rad) * (r + wobble);
 			points.push(`${a === 0 ? "M" : "L"}${x.toFixed(1)},${y.toFixed(1)}`);
 		}
-		paths.push(points.join(" ") + "Z");
+		paths.push(`${points.join(" ")}Z`);
 	}
 
 	return (
@@ -150,9 +150,9 @@ export function MeshBlob3({ className = "" }: { className?: string }) {
 			xmlns="http://www.w3.org/2000/svg"
 			aria-hidden="true"
 		>
-			{paths.map((d, i) => (
+			{paths.map((d) => (
 				<path
-					key={d.slice(0, 20) + i}
+					key={d.slice(0, 30)}
 					d={d}
 					stroke="rgba(255,255,255,0.28)"
 					strokeWidth="0.5"
