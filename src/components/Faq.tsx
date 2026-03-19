@@ -2,32 +2,48 @@ import { useState } from "react";
 
 const faqs = [
 	{
-		q: "Who can participate?",
-		a: "SNUC Hacks'26 is open to all currently enrolled students of SNU Chennai and SSN College of Engineering. Form a team of up to 4 members and get ready to build.",
+		q: "Is it online or offline?",
+		a: "Offline! The event will take place in AB3, SNU Chennai.",
 	},
 	{
-		q: "How do I register?",
-		a: 'Click the "Register Now" button on this page. Fill in your team details and you\'ll receive a confirmation email. Registration is free.',
+		q: "What are the timings?",
+		a: "The hack runs from 9:00 AM on 25th March to 9:00 AM on 26th March (24 hours), followed by evaluation rounds and finals till approximately 2:00 PM on 26th March.",
 	},
 	{
-		q: "When will problem statements be released?",
-		a: "Problem statements will be released on the day of the event. This gives teams time to brainstorm before the hacking begins.",
+		q: "Do we have to stay for the entire 24 hours?",
+		a: "Participants are currently expected to remain in the venue for the duration of the hackathon. Classrooms will be allocated for participants who wish to sleep.",
 	},
 	{
-		q: "Can I participate solo?",
-		a: "Yes, solo participation is allowed. However, we strongly recommend forming a team of 2-4 members for the best experience. Lone wolves welcome, but packs hunt better.",
+		q: "Can day scholars sleep in AB3?",
+		a: "Yes, classrooms will be allocated for participants to rest in.",
 	},
 	{
-		q: "What should I bring?",
-		a: "Your laptop, charger, any hardware you need, student ID, and an unstoppable attitude. Sleeping bags optional but recommended — it's 24 hours of raw coding.",
+		q: "What is the registration fee?",
+		a: "Free! Registration is completely free of charge.",
 	},
 	{
-		q: "Is food provided?",
-		a: "Yes. Meals, snacks, and caffeine will be provided throughout the event. We keep you fueled so you keep shipping. No one codes hungry on our watch.",
+		q: "When does registration close?",
+		a: "Registrations open 18th March and close on 23rd March.",
 	},
 	{
-		q: "What tech is allowed?",
-		a: "Any programming language, framework, or tool is allowed. Use APIs, open-source libraries, cloud services — whatever you need. Pre-written code is not permitted; all work must be done during the hackathon.",
+		q: "Are there different tracks?",
+		a: "There are Problem Statements and Open Innovation — no strict tracks. You're free to expand your solutions beyond the baseline expectations of the PS as well.",
+	},
+	{
+		q: "Will food be provided?",
+		a: "Refreshments will be provided to all participants. However, no meals such as lunch or dinner will be served — participants are encouraged to stock up on their own food and snacks.",
+	},
+	{
+		q: "Will there be enough power outlets?",
+		a: "We will provide as many extension boards as we can. Teams are recommended to bring their own extension cords as well.",
+	},
+	{
+		q: "Is this open to students outside SNU and SSN?",
+		a: "No, SNUC Hacks '26 is open only to SNU and SSN students.",
+	},
+	{
+		q: "What about participants involved in Sports Day on 26th March?",
+		a: "We understand some participants may be involved in Sports Day activities. Affected teams can have available teammates present for judging, or coordinate their arrival time with the OC. Priority slots or post-1:00 PM judging can be arranged if needed — please reach out to the organizing committee in advance.",
 	},
 ];
 
