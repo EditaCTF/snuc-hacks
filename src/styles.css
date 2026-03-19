@@ -22,6 +22,54 @@
   box-sizing: border-box;
 }
 
+.initial-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: grid;
+  place-items: center;
+  background: #fff;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.45s ease,
+    visibility 0.45s ease;
+}
+
+.initial-loader.is-fading {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.initial-loader-logo {
+  width: clamp(90px, 12vw, 150px);
+  height: auto;
+  opacity: 0;
+  filter: brightness(1);
+  transform: scale(0.98);
+  will-change: filter, opacity, transform;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+.initial-loader-logo.is-visible {
+  opacity: 1;
+  transform: scale(1);
+  animation: loaderBreathe 2.2s ease-in-out infinite;
+}
+
+@keyframes loaderBreathe {
+  0%,
+  100% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.28);
+  }
+}
+
 /* V2 Page Styles — Bold Poster Aesthetic */
 /* Scoped under .page to avoid polluting v1 */
 
