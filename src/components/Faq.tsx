@@ -37,39 +37,36 @@ export default function Faq() {
 	const toggle = (i: number) => setActiveIndex(activeIndex === i ? null : i);
 
 	return (
-		<section className="faq-section" id="faq">
-			<div className="section-heading reveal" style={{ color: "var(--cream)" }}>
-				F.A.
-				<span
-					className="stroke"
-					style={
-						{ WebkitTextStrokeColor: "var(--cream)" } as React.CSSProperties
-					}
-				>
-					Q.
-				</span>
-			</div>
-			<div className="faq-container">
-				{faqs.map((item, i) => {
-					const isOpen = activeIndex === i;
-					return (
-						<div key={item.q} className={`faq-item${isOpen ? " active" : ""}`}>
-							<button
-								type="button"
-								className="faq-question"
-								onClick={() => toggle(i)}
+		<section className="v2-faq-section" id="v2-faq">
+			<div className="v2-faq-inner">
+				<div className="v2-section-heading v2-reveal">
+					F.A.<span className="v2-gradient">Q.</span>
+				</div>
+				<div className="v2-faq-container">
+					{faqs.map((item, i) => {
+						const isOpen = activeIndex === i;
+						return (
+							<div
+								key={item.q}
+								className={`v2-faq-item${isOpen ? " v2-active" : ""}`}
 							>
-								<span>{item.q}</span>
-								<span className="toggle">{isOpen ? "−" : "+"}</span>
-							</button>
-							<div className="faq-answer">
-								<div className="faq-answer-wrap">
-									<div className="faq-answer-inner">{item.a}</div>
+								<button
+									type="button"
+									className="v2-faq-question"
+									onClick={() => toggle(i)}
+								>
+									<span>{item.q}</span>
+									<span className="v2-toggle">{isOpen ? "\u2212" : "+"}</span>
+								</button>
+								<div className="v2-faq-answer">
+									<div className="v2-faq-answer-wrap">
+										<div className="v2-faq-answer-inner">{item.a}</div>
+									</div>
 								</div>
 							</div>
-						</div>
-					);
-				})}
+						);
+					})}
+				</div>
 			</div>
 		</section>
 	);

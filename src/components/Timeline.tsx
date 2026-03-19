@@ -14,15 +14,8 @@ const events = [
 	{
 		time: "10:30 AM",
 		day: "Mar 25",
-		label: "Hackathon Begins !!!",
+		label: "Hackathon Begins",
 		highlight: true,
-		timeStyle: { color: "var(--gold)" },
-		contentStyle: {
-			fontFamily: "'Bebas Neue', sans-serif",
-			fontSize: "1.8rem",
-			letterSpacing: "3px",
-			color: "var(--gold)",
-		},
 	},
 	{ time: "3:00 PM", day: "Mar 25", label: "Review 1", highlight: false },
 	{ time: "11:00 PM", day: "Mar 25", label: "Review 2", highlight: false },
@@ -44,43 +37,31 @@ const events = [
 		day: "Mar 26",
 		label: "Announcement of Winners",
 		highlight: true,
-		timeStyle: { color: "var(--gold)" },
-		contentStyle: {
-			fontFamily: "'Bebas Neue', sans-serif",
-			fontSize: "1.5rem",
-			letterSpacing: "3px",
-			color: "var(--gold)",
-		},
 	},
 ];
 
 export default function Timeline() {
 	return (
-		<section className="timeline-section" id="timeline">
-			<div className="section-heading reveal" style={{ color: "var(--cream)" }}>
-				Time
-				<span
-					className="stroke"
-					style={
-						{ WebkitTextStrokeColor: "var(--cream)" } as React.CSSProperties
-					}
-				>
-					line
-				</span>
-			</div>
-			<div className="timeline-container">
-				{events.map((ev) => (
-					<div className="timeline-item reveal" key={ev.time}>
-						<div className="timeline-time" style={ev.timeStyle}>
-							{ev.time}
-							<span className="day">{ev.day}</span>
+		<section className="v2-timeline-section" id="v2-timeline">
+			<div className="v2-timeline-inner">
+				<div className="v2-section-heading v2-reveal">
+					Time<span className="v2-gradient">line</span>
+				</div>
+				<div className="v2-timeline-container">
+					{events.map((ev) => (
+						<div
+							className={`v2-timeline-item v2-reveal${ev.highlight ? " v2-highlight" : ""}`}
+							key={ev.time + ev.day}
+						>
+							<div className="v2-timeline-time">
+								<span className="v2-time-main">{ev.time}</span>
+								<span className="v2-day">{ev.day}</span>
+							</div>
+							<div className="v2-timeline-dot" />
+							<div className="v2-timeline-content">{ev.label}</div>
 						</div>
-						<div className="timeline-line" />
-						<div className="timeline-content" style={ev.contentStyle}>
-							{ev.label}
-						</div>
-					</div>
-				))}
+					))}
+				</div>
 			</div>
 		</section>
 	);

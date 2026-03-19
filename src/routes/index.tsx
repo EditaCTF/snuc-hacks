@@ -1,18 +1,24 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect } from "react";
-import Nav from "../components/Nav";
-import Hero from "../components/Hero";
-import Marquee from "../components/Marquee";
+import Benefits from "../components/Benefits";
+import Contact from "../components/Contact";
 import Countdown from "../components/Countdown";
 import Details from "../components/Details";
-import Benefits from "../components/Benefits";
-import Timeline from "../components/Timeline";
-import Prizes from "../components/Prizes";
 import Faq from "../components/Faq";
-import Contact from "../components/Contact";
-import SiteFooter from "../components/SiteFooter";
+import Footer from "../components/Footer";
+import Hero from "../components/Hero";
+import Marquee from "../components/Marquee";
+import Nav from "../components/Nav";
+import Prizes from "../components/Prizes";
+import Timeline from "../components/Timeline";
+import v2Css from "../v2.css?url";
 
-export const Route = createFileRoute("/")({ component: App });
+export const Route = createFileRoute("/")({
+	head: () => ({
+		links: [{ rel: "stylesheet", href: v2Css }],
+	}),
+	component: App,
+});
 
 const marqueeItems = [
 	"25 & 26 March 2026",
@@ -34,25 +40,23 @@ const marqueeItems2 = [
 
 function App() {
 	useEffect(() => {
-		const nav = document.querySelector("nav");
+		const nav = document.querySelector(".v2-nav");
 		const setNavHeight = () => {
 			if (nav)
 				document.documentElement.style.setProperty(
 					"--nav-height",
-					`${nav.offsetHeight}px`,
+					`${(nav as HTMLElement).offsetHeight}px`,
 				);
 		};
 		setNavHeight();
 		window.addEventListener("resize", setNavHeight);
 
-		const els = document.querySelectorAll<HTMLElement>(
-			".reveal, .reveal-left, .reveal-right",
-		);
+		const els = document.querySelectorAll<HTMLElement>(".v2-reveal");
 		const obs = new IntersectionObserver(
 			(entries) => {
-				entries.forEach((e) => {
-					if (e.isIntersecting) e.target.classList.add("visible");
-				});
+				for (const e of entries) {
+					if (e.isIntersecting) e.target.classList.add("v2-visible");
+				}
 			},
 			{ threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
 		);
@@ -64,14 +68,7 @@ function App() {
 	}, []);
 
 	return (
-		<>
-			<div className="grid-overlay" />
-			<div
-				className="sticker"
-				style={{ top: "45%", right: "1%", transform: "rotate(8deg)" }}
-			>
-				Build.Break.Repeat
-			</div>
+		<div className="v2-page">
 			<Nav />
 			<Hero />
 			<Marquee items={marqueeItems} />
@@ -83,7 +80,7 @@ function App() {
 			<Prizes />
 			<Faq />
 			<Contact />
-			<SiteFooter />
-		</>
+			<Footer />
+		</div>
 	);
 }
