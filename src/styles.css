@@ -931,9 +931,6 @@ body:has(.page) {
   transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.faq-item:hover {
-  border-color: rgba(255, 255, 255, 0.18);
-}
 
 .faq-item.active {
   background: rgba(255, 255, 255, 0.08);
@@ -959,9 +956,6 @@ body:has(.page) {
   text-transform: uppercase;
 }
 
-.faq-question:hover {
-  background: rgba(255, 255, 255, 0.04);
-}
 
 .faq-question .toggle {
   font-family: "Bebas Neue", sans-serif;

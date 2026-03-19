@@ -10,7 +10,7 @@ export default function Footer() {
 				<div className="footer-col footer-col-right">
 					<h4>Contact</h4>
 					<p>
-						<a href="https://www.instagram.com/snuc_cc/">@snuccodingclub</a>
+						<a href="https://www.instagram.com/snuc_cc/" target="_blank" rel="noreferrer">@snuccodingclub</a>
 					</p>
 				</div>
 			</div>
