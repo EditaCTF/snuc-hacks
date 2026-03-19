@@ -15,12 +15,8 @@ export default function Details() {
 						<span className="small">Building Phase</span>
 					</div>
 					<div className="detail-card reveal">
-						<span className="big">Academic Block 3</span>
-						<span className="small">SNU Chennai Campus</span>
-					</div>
-					<div className="detail-card reveal">
 						<span className="big">&#8377;50,000</span>
-						<span className="small">Total Prize Pool</span>
+						<span className="small">Prize Pool</span>
 					</div>
 					<div className="detail-card reveal">
 						<span className="big">3-4</span>
@@ -29,6 +25,10 @@ export default function Details() {
 					<div className="detail-card reveal">
 						<span className="big">SNUC &amp; SSN</span>
 						<span className="small">Students Eligible</span>
+					</div>
+					<div className="detail-card reveal">
+						<span className="big">Academic Block 3</span>
+						<span className="small">SNU Chennai - Venue</span>
 					</div>
 				</div>
 			</div>

@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-const LOGO_REVEAL_MS = 100;
-const LOAD_DELAY_MS = 500;
-const FADE_DURATION_MS = 300;
+const LOGO_REVEAL_MS = 200;
+const LOAD_DELAY_MS = 400;
+const FADE_DURATION_MS = 350;
 
 export default function InitialLoader() {
 	const [isVisible, setIsVisible] = useState(true);

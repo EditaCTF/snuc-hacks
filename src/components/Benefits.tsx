@@ -3,7 +3,7 @@ export default function Benefits() {
 		<section className="benefits-section" id="benefits">
 			<div className="benefits-inner">
 				<div className="section-heading reveal">
-					Why <span className="gradient">Hack?</span>
+					Why <span className="gradient">Join?</span>
 				</div>
 				<div className="benefits-grid">
 					<div className="benefit-card reveal" data-num="01">
@@ -23,7 +23,7 @@ export default function Benefits() {
 					</div>
 					<div className="benefit-card reveal" data-num="04">
 						<h3>Mini-Games</h3>
-						<p>Participate in side quests to win prizes.</p>
+						<p>Kick back from the pressure, participate in side quests and win goodies!</p>
 					</div>
 				</div>
 			</div>
