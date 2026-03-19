@@ -19,11 +19,11 @@ export const Route = createFileRoute("/")({
 
 const marqueeItems = [
 	"25 & 26 March 2026",
-	"AB3 SNU Chennai",
+	"Academic Block 3, SNU Chennai",
 	"₹50,000 Prize Pool",
-	"3 - 4 Team Members",
+	"3 - 4 Members Per Team",
 	"24+ Hours of Hacking",
-	"SNU & SSN Students",
+	"Open to SNUC & SSN Students",
 	"Register Now",
 	"Bring Your Ideas to Life",
 ];

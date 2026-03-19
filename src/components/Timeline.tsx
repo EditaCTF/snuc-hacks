@@ -1,12 +1,24 @@
 const events = [
 	{
-		time: "9:00 AM",
+		time: "06:00 PM",
+		day: "Mar 18",
+		label: "Registrations open",
+		highlight: true,
+	},
+	{
+		time: "11:59 PM",
+		day: "Mar 23",
+		label: "Registrations closed",
+		highlight: false,
+	},
+	{
+		time: "09:00 AM",
 		day: "Mar 25",
 		label: "Participants start arriving at venue",
 		highlight: false,
 	},
 	{
-		time: "9:30 AM",
+		time: "09:30 AM",
 		day: "Mar 25",
 		label: "Problem Statements released",
 		highlight: false,
@@ -18,13 +30,13 @@ const events = [
 		highlight: false,
 	},
 	{
-		time: "3:00 PM",
+		time: "03:00 PM",
 		day: "Mar 25",
 		label: "Round 1 Evaluation ends",
 		highlight: false,
 	},
 	{
-		time: "8:00 AM",
+		time: "08:00 AM",
 		day: "Mar 26",
 		label: "Round 2 Evaluation ends (Tentative)",
 		highlight: false,
@@ -36,7 +48,7 @@ const events = [
 		highlight: false,
 	},
 	{
-		time: "2:00",
+		time: "02:00 PM",
 		day: "Mar 26",
 		label: "Finals conclude & Winners announced",
 		highlight: false,
@@ -57,8 +69,8 @@ export default function Timeline() {
 							key={ev.time + ev.day}
 						>
 							<div className="timeline-time">
-								<span className="time-main">{ev.time}</span>
 								<span className="day">{ev.day}</span>
+								<span className="time-main">{ev.time}</span>
 							</div>
 							<div className="timeline-dot" />
 							<div className="timeline-content">{ev.label}</div>

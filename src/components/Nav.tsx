@@ -1,8 +1,22 @@
 import { Link } from "@tanstack/react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Nav() {
 	const [open, setOpen] = useState(false);
+	const [atTop, setAtTop] = useState(true);
+
+	useEffect(() => {
+		const updateAtTop = () => {
+			setAtTop(window.scrollY <= 8);
+		};
+
+		updateAtTop();
+		window.addEventListener("scroll", updateAtTop, { passive: true });
+
+		return () => {
+			window.removeEventListener("scroll", updateAtTop);
+		};
+	}, []);
 
 	const closeMenu = () => setOpen(false);
 
@@ -19,15 +33,16 @@ export default function Nav() {
 	};
 
 	return (
-		<nav className="nav">
+		<nav className={`nav${atTop ? " at-top" : ""}${open ? " menu-open" : ""}`}>
 			<Link to="/" className="nav-logo">
-				SNUC<span>'26</span>
+				<img src="/cc.png" alt="SNUC Hacks '26" />
 			</Link>
 			<button
 				type="button"
 				className="menu-toggle"
 				onClick={() => setOpen((o) => !o)}
 				aria-label="Menu"
+				aria-expanded={open}
 			>
 				[ = ]
 			</button>
@@ -68,7 +83,6 @@ export default function Nav() {
 					</button>
 				</li>
 			</ul>
-			<div className="nav-cc">CC</div>
 		</nav>
 	);
 }

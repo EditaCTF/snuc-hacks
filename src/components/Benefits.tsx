@@ -15,7 +15,7 @@ export default function Benefits() {
 					</div>
 					<div className="benefit-card reveal" data-num="02">
 						<h3>Networking Opportunity</h3>
-						<p>Connect with fellow hackers and find people to build with</p>
+						<p>Connect with the organizers, volunteers, panel members and fellow coders.</p>
 					</div>
 					<div className="benefit-card reveal" data-num="03">
 						<h3>Expert Jury Panel</h3>

@@ -12,9 +12,11 @@ export default function Hero() {
 						<h1 className="hero-title">
 							SNUC
 							<br />
-							HACKS '26
+							HACKS
+							<br />
+							'26
 						</h1>
-						<p className="hero-tagline">Build Solutions with Real Impact</p>
+						<p className="hero-tagline">24 Hours+ Hackathon - Build Solutions with Real Impact</p>
 
 						<div className="hero-cta">
 							<a
@@ -27,26 +29,20 @@ export default function Hero() {
 								<span className="btn-arrow">&rarr;</span>
 							</a>
 						</div>
-
-						<div className="ascend-stack" aria-hidden="true">
-							{[1, 0.7, 0.45, 0.25, 0.1].map((opacity) => (
-								<div key={`ascend-${opacity}`} style={{ opacity }}>
-									ASCEND
-								</div>
-							))}
-						</div>
 					</div>
 
 					<div className="hero-right">
-						<div className="stat-big">24</div>
-						<div className="stat-label">
-							Hours+
-							<br />
-							Hackathon
-						</div>
 						<div className="date-marker">
 							<div className="date-num">25-26</div>
 							<div className="date-text">March</div>
+						</div>
+						<div className="ascend-stack" aria-hidden="true">
+							<div className="ascend-primary">ASCEND</div>
+							{[0, 1, 2, 3, 4].map((index) => (
+								<div key={`ascend-outline-${index}`} className={`ascend-outline ascend-outline-${index + 1}`}>
+									ASCEND
+								</div>
+							))}
 						</div>
 					</div>
 				</div>
