@@ -56,7 +56,7 @@ export default function Faq() {
 		<section className="faq-section" id="faq">
 			<div className="faq-inner">
 				<div className="section-heading reveal">
-					F.A.<span className="gradient">Q.</span>
+					FAQ<span className="gradient">s</span>
 				</div>
 				<div className="faq-container">
 					{faqs.map((item, i) => {

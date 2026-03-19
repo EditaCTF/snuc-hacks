@@ -5,6 +5,10 @@ const contacts = [
 	{ name: "Vijayan S", phone: "8080323242" },
 ];
 
+const formatPhone = (phone: string) => {
+	return `+91 ${phone.slice(0, 5)} ${phone.slice(5)}`;
+};
+
 export default function Contact() {
 	return (
 		<section className="contact-section" id="contact">
@@ -20,7 +24,7 @@ export default function Contact() {
 							rel="noreferrer"
 						>
 							<span className="contact-name">{c.name}</span>
-							<span className="contact-phone">{c.phone}</span>
+							<span className="contact-phone">{formatPhone(c.phone)}</span>
 						</a>
 					))}
 				</div>

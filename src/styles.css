@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700;800&family=Space+Mono:wght@400;700&display=swap");
 
 @font-face {
   font-family: "Horizon";
@@ -116,6 +116,26 @@ body:has(.page) {
   }
   to {
     transform: translateX(-50%);
+  }
+}
+
+@keyframes dotGlowWhite {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.95), 0 0 30px rgba(255, 255, 255, 0.7);
+  }
+}
+
+@keyframes dotGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 10px rgba(124, 115, 255, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(124, 115, 255, 0.9), 0 0 30px rgba(124, 115, 255, 0.6);
   }
 }
 
@@ -578,15 +598,10 @@ body:has(.page) {
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.countdown-box:hover {
+.countdown-box.day-box {
   background: var(--blue);
   transform: translateY(-4px);
   box-shadow: 0 12px 40px rgba(67, 56, 224, 0.3);
-}
-
-.countdown-box:hover .number,
-.countdown-box:hover .label {
-  color: var(--white);
 }
 
 .countdown-box .number {
@@ -612,7 +627,12 @@ body:has(.page) {
     opacity 0.4s ease;
 }
 
-.countdown-box:hover .label {
+.countdown-box.day-box .number,
+.countdown-box.day-box .label {
+  color: var(--white);
+}
+
+.countdown-box.day-box .label {
   opacity: 0.8;
 }
 
@@ -842,6 +862,15 @@ body:has(.page) {
 .timeline-item.highlight {
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+.timeline-item.highlight .timeline-dot {
+  animation: dotGlow 2s ease-in-out infinite;
+}
+
+.timeline-item.highlight:first-of-type .timeline-dot {
+  background: rgba(255, 255, 255, 0.95);
+  animation: dotGlowWhite 2s ease-in-out infinite;
 }
 
 .timeline-time {
@@ -1075,7 +1104,7 @@ body:has(.page) {
 .faq-answer-inner {
   padding: 0 1.5rem 1.5rem;
   font-family: "DM Sans", sans-serif;
-  font-size: 0.78rem;
+  font-size: 1rem;
   line-height: 1.8;
   color: rgba(255, 255, 255, 0.65);
 }
@@ -1202,7 +1231,7 @@ body:has(.page) {
 .footer-grid {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
   gap: 3rem;
   max-width: 1000px;
   margin: 0 auto 2.5rem;
@@ -1221,6 +1250,25 @@ body:has(.page) {
   text-transform: uppercase;
 }
 
+.footer-title {
+  font-family: "Horizon", sans-serif;
+  font-size: 2.2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  color: var(--white);
+  text-transform: uppercase;
+  line-height: 1.1;
+}
+
+.footer-subtext {
+  font-family: "DM Sans", sans-serif;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  letter-spacing: 0.5px;
+  display: block;
+  color: rgba(255, 255, 255, 0.6);
+}
+
 .page .footer-col p,
 .page .footer-col a {
   font-family: "DM Sans", sans-serif;
@@ -1237,14 +1285,53 @@ body:has(.page) {
   color: var(--white);
 }
 
+.footer-logos {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.footer-cc-logo {
+  height: 40px;
+  width: auto;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.footer-cc-logo:hover {
+  opacity: 1;
+}
+
+.footer-instagram-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.8);
+  transition: color 0.3s ease;
+  text-decoration: none;
+  width: 50px;
+  height: 50px;
+}
+
+.footer-instagram-link:hover {
+  color: var(--white);
+}
+
+.footer-instagram-link svg {
+  stroke: currentColor;
+  width: 100%;
+  height: 100%;
+}
+
 .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
   padding-top: 1.5rem;
   text-align: center;
-  font-family: "DM Sans", sans-serif;
-  font-size: 0.6rem;
-  letter-spacing: 2px;
-  color: rgba(255, 255, 255, 0.3);
+  font-family: "Space Mono", monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+  color: rgba(255, 255, 255, 0.45);
 }
 
 /* ═══════════════════════════════════════════ */
@@ -1406,6 +1493,7 @@ body:has(.page) {
 
   .footer-grid {
     flex-direction: column;
+    align-items: flex-start;
     text-align: left;
     gap: 2rem;
   }
@@ -1413,6 +1501,14 @@ body:has(.page) {
   .footer-col,
   .footer-col-right {
     text-align: left;
+  }
+
+  .footer-col-right {
+    text-align: left;
+  }
+
+  .footer-logos {
+    justify-content: flex-start;
   }
 
   .mesh-hero-1 {
@@ -1435,6 +1531,10 @@ body:has(.page) {
   .mesh-hero-3 {
     width: 140px;
     height: 140px;
+  }
+
+  .faq-question {
+    font-size: 1.1rem;
   }
 }
 

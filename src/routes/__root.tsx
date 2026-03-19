@@ -7,7 +7,7 @@ export const Route = createRootRoute({
 		meta: [
 			{ charSet: "utf-8" },
 			{ name: "viewport", content: "width=device-width, initial-scale=1" },
-			{ title: "SNUC HACKS'26" },
+			{ title: "SNUC Hacks '26 - SNUC Coding Club" },
 		],
 		links: [{ rel: "stylesheet", href: appCss }],
 	}),
