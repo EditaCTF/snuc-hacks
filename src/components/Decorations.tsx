@@ -22,7 +22,7 @@ export function MeshBlob1({ className = "" }: { className?: string }) {
 
 	return (
 		<svg
-			className={`v2-mesh-decoration ${className}`}
+			className={`mesh-decoration ${className}`}
 			width="300"
 			height="300"
 			viewBox="0 0 300 300"
@@ -65,7 +65,7 @@ export function MeshBlob2({ className = "" }: { className?: string }) {
 
 	return (
 		<svg
-			className={`v2-mesh-decoration ${className}`}
+			className={`mesh-decoration ${className}`}
 			width="300"
 			height="300"
 			viewBox="0 0 300 300"
@@ -99,7 +99,7 @@ export function FlowingWaves({ className = "" }: { className?: string }) {
 
 	return (
 		<svg
-			className={`v2-mesh-decoration ${className}`}
+			className={`mesh-decoration ${className}`}
 			width="600"
 			height="200"
 			viewBox="0 0 600 200"
@@ -142,7 +142,7 @@ export function MeshBlob3({ className = "" }: { className?: string }) {
 
 	return (
 		<svg
-			className={`v2-mesh-decoration ${className}`}
+			className={`mesh-decoration ${className}`}
 			width="320"
 			height="320"
 			viewBox="0 0 320 320"

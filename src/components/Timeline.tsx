@@ -45,23 +45,23 @@ const events = [
 
 export default function Timeline() {
 	return (
-		<section className="v2-timeline-section" id="v2-timeline">
-			<div className="v2-timeline-inner">
-				<div className="v2-section-heading v2-reveal">
-					Time<span className="v2-gradient">line</span>
+		<section className="timeline-section" id="timeline">
+			<div className="timeline-inner">
+				<div className="section-heading reveal">
+					Time<span className="gradient">line</span>
 				</div>
-				<div className="v2-timeline-container">
+				<div className="timeline-container">
 					{events.map((ev) => (
 						<div
-							className={`v2-timeline-item v2-reveal${ev.highlight ? " v2-highlight" : ""}`}
+							className={`timeline-item reveal${ev.highlight ? " highlight" : ""}`}
 							key={ev.time + ev.day}
 						>
-							<div className="v2-timeline-time">
-								<span className="v2-time-main">{ev.time}</span>
-								<span className="v2-day">{ev.day}</span>
+							<div className="timeline-time">
+								<span className="time-main">{ev.time}</span>
+								<span className="day">{ev.day}</span>
 							</div>
-							<div className="v2-timeline-dot" />
-							<div className="v2-timeline-content">{ev.label}</div>
+							<div className="timeline-dot" />
+							<div className="timeline-content">{ev.label}</div>
 						</div>
 					))}
 				</div>

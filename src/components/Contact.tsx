@@ -7,25 +7,25 @@ const contacts = [
 
 export default function Contact() {
 	return (
-		<section className="v2-contact-section" id="v2-contact">
-			<div className="v2-contact-inner">
-				<h2 className="v2-contact-heading">More Doubts? Contact Us</h2>
-				<div className="v2-contact-grid">
+		<section className="contact-section" id="contact">
+			<div className="contact-inner">
+				<h2 className="contact-heading">More Doubts? Contact Us</h2>
+				<div className="contact-grid">
 					{contacts.map((c) => (
 						<a
-							className="v2-contact-card"
+							className="contact-card"
 							key={c.name}
 							href={`https://wa.me/91${c.phone}`}
 							target="_blank"
 							rel="noreferrer"
 						>
-							<span className="v2-contact-name">{c.name}</span>
-							<span className="v2-contact-phone">{c.phone}</span>
+							<span className="contact-name">{c.name}</span>
+							<span className="contact-phone">{c.phone}</span>
 						</a>
 					))}
 				</div>
 				<a
-					className="v2-contact-instagram"
+					className="contact-instagram"
 					href="https://www.instagram.com/snuc_cc/"
 					target="_blank"
 					rel="noreferrer"

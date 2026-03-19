@@ -26,27 +26,27 @@ export default function Countdown() {
 	}, []);
 
 	return (
-		<section className="v2-countdown-section" id="v2-countdown">
-			<div className="v2-countdown-inner">
-				<h2 className="v2-countdown-title v2-reveal">
+		<section className="countdown-section" id="countdown">
+			<div className="countdown-inner">
+				<h2 className="countdown-title reveal">
 					Hacking Begins <span>In</span>
 				</h2>
-				<div className="v2-countdown-grid v2-reveal">
-					<div className="v2-countdown-box">
-						<span className="v2-number">{time.d}</span>
-						<span className="v2-label">Days</span>
+				<div className="countdown-grid reveal">
+					<div className="countdown-box">
+						<span className="number">{time.d}</span>
+						<span className="label">Days</span>
 					</div>
-					<div className="v2-countdown-box">
-						<span className="v2-number">{time.h}</span>
-						<span className="v2-label">Hours</span>
+					<div className="countdown-box">
+						<span className="number">{time.h}</span>
+						<span className="label">Hours</span>
 					</div>
-					<div className="v2-countdown-box">
-						<span className="v2-number">{time.m}</span>
-						<span className="v2-label">Minutes</span>
+					<div className="countdown-box">
+						<span className="number">{time.m}</span>
+						<span className="label">Minutes</span>
 					</div>
-					<div className="v2-countdown-box">
-						<span className="v2-number">{time.s}</span>
-						<span className="v2-label">Seconds</span>
+					<div className="countdown-box">
+						<span className="number">{time.s}</span>
+						<span className="label">Seconds</span>
 					</div>
 				</div>
 			</div>

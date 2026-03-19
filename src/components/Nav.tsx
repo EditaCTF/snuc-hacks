@@ -8,7 +8,7 @@ export default function Nav() {
 
 	const scrollTo = (id: string) => () => {
 		const el = document.getElementById(id);
-		const nav = document.querySelector(".v2-nav") as HTMLElement | null;
+		const nav = document.querySelector(".nav") as HTMLElement | null;
 		if (el) {
 			const navHeight = nav?.offsetHeight ?? 0;
 			const top =
@@ -19,56 +19,56 @@ export default function Nav() {
 	};
 
 	return (
-		<nav className="v2-nav">
-			<Link to="/" className="v2-nav-logo">
+		<nav className="nav">
+			<Link to="/" className="nav-logo">
 				SNUC<span>'26</span>
 			</Link>
 			<button
 				type="button"
-				className="v2-menu-toggle"
+				className="menu-toggle"
 				onClick={() => setOpen((o) => !o)}
 				aria-label="Menu"
 			>
 				[ = ]
 			</button>
-			<ul className={`v2-nav-links${open ? " v2-open" : ""}`}>
+			<ul className={`nav-links${open ? " open" : ""}`}>
 				<li>
-					<button type="button" onClick={scrollTo("v2-countdown")}>
+					<button type="button" onClick={scrollTo("countdown")}>
 						Countdown
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-details")}>
+					<button type="button" onClick={scrollTo("details")}>
 						Details
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-benefits")}>
+					<button type="button" onClick={scrollTo("benefits")}>
 						Benefits
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-timeline")}>
+					<button type="button" onClick={scrollTo("timeline")}>
 						Timeline
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-prizes")}>
+					<button type="button" onClick={scrollTo("prizes")}>
 						Prizes
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-faq")}>
+					<button type="button" onClick={scrollTo("faq")}>
 						FAQ
 					</button>
 				</li>
 				<li>
-					<button type="button" onClick={scrollTo("v2-contact")}>
+					<button type="button" onClick={scrollTo("contact")}>
 						Contact
 					</button>
 				</li>
 			</ul>
-			<div className="v2-nav-cc">CC</div>
+			<div className="nav-cc">CC</div>
 		</nav>
 	);
 }

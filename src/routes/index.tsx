@@ -37,7 +37,7 @@ const marqueeItems2 = [
 
 function App() {
 	useEffect(() => {
-		const nav = document.querySelector(".v2-nav");
+		const nav = document.querySelector(".nav");
 		const setNavHeight = () => {
 			if (nav)
 				document.documentElement.style.setProperty(
@@ -48,11 +48,11 @@ function App() {
 		setNavHeight();
 		window.addEventListener("resize", setNavHeight);
 
-		const els = document.querySelectorAll<HTMLElement>(".v2-reveal");
+		const els = document.querySelectorAll<HTMLElement>(".reveal");
 		const obs = new IntersectionObserver(
 			(entries) => {
 				for (const e of entries) {
-					if (e.isIntersecting) e.target.classList.add("v2-visible");
+					if (e.isIntersecting) e.target.classList.add("revealed");
 				}
 			},
 			{ threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
@@ -65,7 +65,7 @@ function App() {
 	}, []);
 
 	return (
-		<div className="v2-page">
+		<div className="page">
 			<Nav />
 			<Hero />
 			<Marquee items={marqueeItems} />
