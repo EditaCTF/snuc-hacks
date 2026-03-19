@@ -91,16 +91,39 @@ nav ul {
   gap: 0
 }
 
-nav ul li a {
+nav ul li button {
   font-family: 'Space Mono', monospace;
   font-size: .7rem;
   color: var(--cream);
   text-transform: uppercase;
   padding: .8rem 1.2rem;
   border-left: 1px solid rgba(245, 240, 225, .2);
+  border-top: 0;
+  border-right: 0;
+  border-bottom: 0;
   display: block;
   letter-spacing: 1px;
-  transition: all .1s
+  transition: all .1s;
+  background: none;
+  cursor: pointer
+}
+
+nav ul li button:hover {
+  background: var(--gold);
+  color: var(--black)
+}
+
+nav ul li a {
+  font-family: 'Space Mono', monospace;
+  font-size: .7rem;
+  color: var(--cream);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: .5rem 1rem;
+  display: block;
+  text-decoration: none;
+  background: none;
+  cursor: pointer
 }
 
 nav ul li a:hover {
@@ -295,7 +318,7 @@ nav .menu-toggle {
 /* MARQUEE */
 .marquee-wrap {
   background: var(--gold);
-  border-top: 3px solid var(--black);
+  border-top: none;
   border-bottom: 3px solid var(--black);
   overflow: hidden;
   padding: .8rem 0;
@@ -305,7 +328,8 @@ nav .menu-toggle {
 
 .marquee-wrap.dark {
   background: var(--black);
-  border-color: var(--gold)
+  border-top: 3px solid var(--gold);
+  border-bottom: 3px solid var(--gold);
 }
 
 .marquee-track {
@@ -1155,10 +1179,13 @@ footer::before {
     display: flex
   }
 
+  nav ul li button,
   nav ul li a {
     border-left: 0;
     border-bottom: 1px solid rgba(245, 240, 225, .1);
-    padding: 1rem 2rem
+    padding: 1rem 2rem;
+    width: 100%;
+    box-sizing: border-box
   }
 
   nav .menu-toggle {
