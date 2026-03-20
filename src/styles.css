@@ -102,44 +102,45 @@ body:has(.page) {
 }
 
 /* ═══════════════════════════════════════════ */
-/* MESH DECORATIONS                           */
+/* PNG DECORATIONS                            */
 /* ═══════════════════════════════════════════ */
-.mesh-decoration {
+.png-deco {
   position: absolute;
   pointer-events: none;
   z-index: 1;
+  mix-blend-mode: screen;
+  opacity: 0.85;
 }
 
-.mesh-hero-1 {
-  top: 5%;
-  right: 10%;
-  width: 430px;
-  height: 430px;
-  animation: float 20s ease-in-out infinite;
+/* 4.png: corner wave — bleeds above hero into navbar area */
+.png-deco-4 {
+  top: -80px;
+  right: 0;
+  width: min(440px, 32vw);
+  z-index: 0;
 }
 
-.mesh-hero-2 {
-  bottom: 12%;
-  left: 3%;
-  width: 320px;
-  height: 320px;
-  animation: float 25s ease-in-out infinite reverse;
+/* 5.png: X/cross — left side, vertically mid */
+.png-deco-5 {
+  top: 50%;
+  left: 2%;
+  transform: translateY(-50%);
+  width: min(300px, 22vw);
 }
 
-.mesh-hero-waves {
-  top: 40%;
-  left: 20%;
-  width: 560px;
-  opacity: 0.5;
-  animation: float 30s ease-in-out infinite;
-}
-
-.mesh-hero-3 {
+/* 3.png: star/blob — bottom-left */
+.png-deco-3 {
   bottom: 4%;
-  right: 3%;
-  width: 240px;
-  height: 240px;
-  animation: float 22s ease-in-out infinite;
+  left: 5%;
+  width: min(230px, 17vw);
+}
+
+/* 2.png: right side, lower */
+.png-deco-2 {
+  top: 45%;
+  right: 8%;
+  width: min(300px, 22vw);
+  opacity: 0.5;
 }
 
 @keyframes float {
@@ -148,13 +149,29 @@ body:has(.page) {
     transform: translateY(0) rotate(0deg);
   }
   25% {
-    transform: translateY(-12px) rotate(2deg);
+    transform: translateY(-6px) rotate(1deg);
   }
   50% {
-    transform: translateY(6px) rotate(-1deg);
+    transform: translateY(3px) rotate(-0.5deg);
   }
   75% {
-    transform: translateY(-8px) rotate(1.5deg);
+    transform: translateY(-4px) rotate(0.8deg);
+  }
+}
+
+@keyframes floatRight {
+  0%,
+  100% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  25% {
+    transform: translateY(calc(-50% - 6px)) rotate(1deg);
+  }
+  50% {
+    transform: translateY(calc(-50% + 3px)) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(calc(-50% - 4px)) rotate(0.8deg);
   }
 }
 
@@ -326,7 +343,7 @@ body:has(.page) {
   background: var(--blue);
   color: var(--white);
   position: relative;
-  overflow: hidden;
+  overflow: visible;
   padding: 8rem 3rem 4rem;
   display: flex;
   flex-direction: column;
@@ -1561,26 +1578,24 @@ body:has(.page) {
     justify-content: flex-start;
   }
 
-  .mesh-hero-1 {
-    width: 240px;
-    height: 240px;
-    top: 5%;
-    right: -5%;
+  .png-deco-4 {
+    width: min(200px, 30vw);
+    top: -40px;
+    right: 0;
   }
 
-  .mesh-hero-2 {
-    width: 180px;
-    height: 180px;
+  .png-deco-5 {
+    display: none;
   }
 
-  .mesh-hero-waves {
-    width: 360px;
-    opacity: 0.35;
+  .png-deco-3 {
+    width: min(140px, 22vw);
+    left: 3%;
+    bottom: 2%;
   }
 
-  .mesh-hero-3 {
-    width: 140px;
-    height: 140px;
+  .png-deco-2 {
+    display: none;
   }
 
   .faq-question {
@@ -1589,6 +1604,15 @@ body:has(.page) {
 }
 
 @media (max-width: 480px) {
+  .png-deco-4 {
+    width: min(160px, 40vw);
+    top: -20px;
+  }
+
+  .png-deco-3 {
+    display: none;
+  }
+
   .hero-title {
     font-size: clamp(2.8rem, 16vw, 4.4rem);
   }

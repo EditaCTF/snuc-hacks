@@ -1,10 +1,10 @@
-import { MeshBlob1, MeshBlob3 } from "./Decorations";
-
 export default function Hero() {
 	return (
 		<section className="hero" id="hero">
-			<MeshBlob1 className="mesh-hero-1" />
-			<MeshBlob3 className="mesh-hero-3" />
+			<img src="/5.png" className="png-deco png-deco-5" alt="" aria-hidden="true" />
+			<img src="/4.png" className="png-deco png-deco-4" alt="" aria-hidden="true" />
+			<img src="/3.png" className="png-deco png-deco-3" alt="" aria-hidden="true" />
+			<img src="/2.png" className="png-deco png-deco-2" alt="" aria-hidden="true" />
 
 			<div className="hero-content">
 				<div className="hero-grid">
