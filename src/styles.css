@@ -1075,6 +1075,40 @@ body:has(.page) {
   opacity: 1;
 }
 
+.prizes-special {
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.prize-card.special {
+  background: var(--blue);
+  color: var(--white);
+  padding: 2.5rem 1.5rem;
+  box-shadow: 0 8px 40px rgba(67, 56, 224, 0.35);
+}
+
+.prize-card.special:hover {
+  box-shadow: 0 20px 56px rgba(67, 56, 224, 0.45);
+}
+
+.prize-card.special .place {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+  font-size: 0.7rem;
+}
+
+.prize-card.special .amount {
+  color: var(--white);
+  font-size: 2.2rem;
+}
+
+.prize-card.special .desc {
+  color: rgba(255, 255, 255, 0.6);
+  opacity: 1;
+}
+
 /* ═══════════════════════════════════════════ */
 /* FAQ                                        */
 /* ═══════════════════════════════════════════ */
@@ -1530,6 +1564,10 @@ body:has(.page) {
   }
 
   .prizes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prizes-special {
     grid-template-columns: 1fr;
   }
 

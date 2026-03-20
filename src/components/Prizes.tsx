@@ -13,13 +13,25 @@ export default function Prizes() {
 					</div>
 					<div className="prize-card featured reveal">
 						<span className="place">1ST</span>
-						<span className="amount">&#8377;25,000</span>
+						<span className="amount">&#8377;20,000</span>
 						<span className="desc">Grand Prize</span>
 					</div>
 					<div className="prize-card reveal">
 						<span className="place">3RD</span>
 						<span className="amount">&#8377;10,000</span>
 						<span className="desc">Second Runner Up</span>
+					</div>
+				</div>
+				<div className="prizes-grid prizes-special">
+					<div className="prize-card special reveal">
+						<span className="place">Best Girls Team</span>
+						<span className="amount">&#8377;2,500</span>
+						<span className="desc">Special Award</span>
+					</div>
+					<div className="prize-card special reveal">
+						<span className="place">Best Fresher Team</span>
+						<span className="amount">&#8377;2,500</span>
+						<span className="desc">Newbie Award</span>
 					</div>
 				</div>
 			</div>
