@@ -1,3 +1,4 @@
+import { Link } from "@tanstack/react-router";
 import { useState } from "react";
 
 const faqs = [
@@ -59,7 +60,13 @@ export default function Faq() {
 					FAQ<span className="gradient">s</span>
 				</div>
 				<div className="faq-container">
-					{faqs.map((item, i) => {
+					{faqs.filter(item => [
+					"Is it online or offline?",
+					"What are the timings?",
+					"What is the registration fee?",
+					"Will food be provided?",
+					"Is this open to students outside SNU and SSN?",
+				].includes(item.q)).map((item, i) => {
 						const isOpen = activeIndex === i;
 						return (
 							<div
@@ -82,6 +89,11 @@ export default function Faq() {
 							</div>
 						);
 					})}
+				</div>
+				<div className="faq-more">
+					<Link to="/rules" hash="faq" className="btn btn-outline faq-more-btn">
+						View more in our Rulebook <span className="btn-arrow">&rarr;</span>
+					</Link>
 				</div>
 			</div>
 		</section>

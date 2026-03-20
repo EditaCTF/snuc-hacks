@@ -122,15 +122,15 @@ body:has(.page) {
 
 /* 5.png: X/cross — left side, vertically mid */
 .png-deco-5 {
-  top: 50%;
-  left: 2%;
+  top: 30%;
+  left: -2%;
   transform: translateY(-50%);
   width: min(300px, 22vw);
 }
 
 /* 3.png: star/blob — bottom-left */
 .png-deco-3 {
-  bottom: 4%;
+  bottom: -4%;
   left: 5%;
   width: min(230px, 17vw);
 }
@@ -504,6 +504,8 @@ body:has(.page) {
   background: transparent;
   color: var(--white);
   border: 1.5px solid rgba(255, 255, 255, 0.5);
+  display: inline-flex;
+  align-items: center;
 }
 
 .btn-outline:hover {
@@ -1165,6 +1167,17 @@ body:has(.page) {
   margin-top: 2.5rem;
 }
 
+.faq-more {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.faq-more-btn {
+  font-size: 0.85rem;
+  padding: 0.7rem 1.8rem;
+}
+
 .faq-item {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -1470,6 +1483,17 @@ body:has(.page) {
 /* RESPONSIVE                                 */
 /* ═══════════════════════════════════════════ */
 @media (max-width: 768px) {
+  .hero-cta {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
   .page .nav.at-top.menu-open {
     background: rgba(67, 56, 224, 0.96);
     backdrop-filter: blur(20px);
@@ -1527,7 +1551,7 @@ body:has(.page) {
   .page .nav-links li button,
   .page .nav-links li a {
     padding: 1rem 2rem;
-    text-align: center;
+    text-align: left;
     border-radius: 0;
   }
 
@@ -1665,6 +1689,13 @@ body:has(.page) {
   }
 
   .png-deco-3 {
+    display: block;
+    bottom: 2%;
+    left: 3%;
+    width: min(120px, 30vw);
+  }
+
+  .png-deco-2 {
     display: none;
   }
 
@@ -1714,7 +1745,7 @@ body:has(.rules-page) {
   left: 0;
   width: var(--sidebar-w);
   height: 100vh;
-  background: rgba(0, 0, 0, 0.22);
+  background: #1a1060;
   border-right: 1px solid rgba(255, 255, 255, 0.07);
   display: flex;
   flex-direction: column;
@@ -1826,9 +1857,15 @@ body:has(.rules-page) {
 .rules-content {
   margin-left: var(--sidebar-w);
   flex: 1;
-  max-width: 840px;
-  padding: 3.5rem 3.5rem 6rem;
   min-width: 0;
+  display: flex;
+  justify-content: center;
+  padding: 3.5rem 3.5rem 6rem;
+}
+
+.rules-inner {
+  width: 100%;
+  max-width: 740px;
 }
 
 .rules-header {
@@ -2016,19 +2053,102 @@ body:has(.rules-page) {
   color: rgba(255, 255, 255, 0.3) !important;
 }
 
+/* ── Mobile nav ── */
+.rules-mobile-nav {
+  display: none;
+}
+
+/* ── Drawer close button (hidden on desktop) ── */
+.rules-drawer-close {
+  display: none;
+}
+
 /* ── Responsive ── */
 @media (max-width: 900px) {
   .rules-page {
     --sidebar-w: 0px;
   }
 
-  .rules-sidebar {
+  .rules-mobile-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 56px;
+    padding: 0 1.25rem;
+    background: rgba(67, 56, 224, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 200;
+  }
+
+  .rules-hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 6px;
+  }
+
+  .rules-hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 2px;
+  }
+
+  .rules-mobile-logo {
+    height: 30px;
+    width: auto;
+    display: block;
+  }
+
+  .rules-sidebar .rules-sidebar-logo {
     display: none;
+  }
+
+  .rules-sidebar {
+    width: 280px;
+    transform: translateX(-100%);
+    transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 300;
+  }
+
+  .rules-sidebar--open {
+    transform: translateX(0);
+  }
+
+  .rules-drawer-close {
+    display: block;
+    position: absolute;
+    top: 0.75rem;
+    right: 0.75rem;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1.1rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    line-height: 1;
+  }
+
+  .rules-drawer-close:hover {
+    color: #fff;
   }
 
   .rules-content {
     margin-left: 0;
-    padding: 2rem 1.5rem 4rem;
+    padding: 5rem 1.5rem 4rem;
+  }
+
+  .rules-inner {
     max-width: 100%;
   }
 }

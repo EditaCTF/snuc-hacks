@@ -1,5 +1,5 @@
 import { Link, createFileRoute } from "@tanstack/react-router";
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 export const Route = createFileRoute("/rules")({
 	head: () => ({
@@ -10,7 +10,6 @@ export const Route = createFileRoute("/rules")({
 
 const sections = [
 	{ id: "overview", label: "Overview" },
-	{ id: "timeline", label: "Timeline" },
 	{ id: "format", label: "Hackathon Format" },
 	{ id: "rules-regs", label: "Rules & Regulations" },
 	{ id: "judging", label: "Judging Criteria" },
@@ -22,7 +21,25 @@ const sections = [
 
 function RulesPage() {
 	const [activeSection, setActiveSection] = useState("overview");
+	const [drawerOpen, setDrawerOpen] = useState(false);
 	const contentRef = useRef<HTMLDivElement>(null);
+
+	const scrollToSection = useCallback((id: string) => {
+		const el = document.getElementById(id);
+		if (el) {
+			const navHeight = window.innerWidth <= 900 ? 80 : 24;
+			const top = el.getBoundingClientRect().top + window.scrollY - navHeight;
+			window.scrollTo({ top, behavior: "smooth" });
+		}
+		setDrawerOpen(false);
+	}, []);
+
+	useEffect(() => {
+		const hash = window.location.hash.replace("#", "");
+		if (hash) {
+			setTimeout(() => scrollToSection(hash), 100);
+		}
+	}, [scrollToSection]);
 
 	useEffect(() => {
 		const headings = document.querySelectorAll<HTMLElement>("[data-section]");
@@ -40,18 +57,35 @@ function RulesPage() {
 		return () => observer.disconnect();
 	}, []);
 
-	const scrollToSection = (id: string) => {
-		const el = document.getElementById(id);
-		if (el) {
-			const top = el.getBoundingClientRect().top + window.scrollY - 24;
-			window.scrollTo({ top, behavior: "smooth" });
-		}
-	};
-
 	return (
 		<div className="rules-page">
-			{/* Fixed sidebar */}
-			<aside className="rules-sidebar">
+			{/* Mobile top nav */}
+			<nav className="rules-mobile-nav">
+				<button
+					type="button"
+					className="rules-hamburger"
+					aria-label="Open menu"
+					onClick={() => setDrawerOpen(true)}
+				>
+					<span />
+					<span />
+					<span />
+				</button>
+				<Link to="/">
+					<img src="/cc.png" alt="SNUC Coding Club" className="rules-mobile-logo" />
+				</Link>
+			</nav>
+
+{/* Fixed sidebar (also used as mobile drawer) */}
+			<aside className={`rules-sidebar${drawerOpen ? " rules-sidebar--open" : ""}`}>
+				<button
+					type="button"
+					className="rules-drawer-close"
+					aria-label="Close menu"
+					onClick={() => setDrawerOpen(false)}
+				>
+					&#x2715;
+				</button>
 				<div className="rules-sidebar-logo">
 					<Link to="/">
 						<img src="/cc.png" alt="SNUC Coding Club" />
@@ -96,6 +130,7 @@ function RulesPage() {
 
 			{/* Scrollable content */}
 			<main className="rules-content" ref={contentRef}>
+				<div className="rules-inner">
 				<header className="rules-header">
 					<h1 className="rules-title">SNUC Hacks '26 — Rulebook</h1>
 					<hr className="rules-divider" />
@@ -121,61 +156,9 @@ function RulesPage() {
 					</p>
 				</section>
 
-				{/* 2. Timeline */}
-				<section id="timeline" data-section="timeline" className="rules-section">
-					<h2 className="rules-h2">2. Timeline</h2>
-					<hr className="rules-divider" />
-					<div className="rules-table-wrap">
-						<table className="rules-table">
-							<thead>
-								<tr>
-									<th>Time</th>
-									<th>Event</th>
-								</tr>
-							</thead>
-							<tbody>
-								<tr>
-									<td>25th March, 9:00 AM</td>
-									<td>Participants start arriving at venue</td>
-								</tr>
-								<tr>
-									<td>25th March, 9:30 AM</td>
-									<td>Problem Statements released</td>
-								</tr>
-								<tr>
-									<td>25th March, 10:00 AM</td>
-									<td>
-										Team Leaders Meeting — rules clarification &amp; Q&amp;A
-									</td>
-								</tr>
-								<tr>
-									<td>25th March, 3:00 PM</td>
-									<td>Round 1 Evaluation ends</td>
-								</tr>
-								<tr>
-									<td>26th March, 8:00 AM</td>
-									<td>Round 2 Evaluation ends (Tentative)</td>
-								</tr>
-								<tr>
-									<td>26th March, 10:00 AM</td>
-									<td>Finals begin</td>
-								</tr>
-								<tr>
-									<td>26th March, 2:00 – 3:00 PM</td>
-									<td>Finals conclude &amp; Winners announced</td>
-								</tr>
-							</tbody>
-						</table>
-					</div>
-					<p className="rules-note">
-						<strong>Note:</strong> All Round Evaluations will be{" "}
-						<strong>Eliminatory</strong> in Nature.
-					</p>
-				</section>
-
-				{/* 3. Hackathon Format */}
+				{/* 2. Hackathon Format */}
 				<section id="format" data-section="format" className="rules-section">
-					<h2 className="rules-h2">3. Hackathon Format</h2>
+					<h2 className="rules-h2">2. Hackathon Format</h2>
 					<hr className="rules-divider" />
 					<h3 className="rules-h3">Structure</h3>
 					<ul className="rules-list">
@@ -208,13 +191,13 @@ function RulesPage() {
 					</ul>
 				</section>
 
-				{/* 4. Rules & Regulations */}
+				{/* 3. Rules & Regulations */}
 				<section
 					id="rules-regs"
 					data-section="rules-regs"
 					className="rules-section"
 				>
-					<h2 className="rules-h2">4. Rules &amp; Regulations</h2>
+					<h2 className="rules-h2">3. Rules &amp; Regulations</h2>
 					<hr className="rules-divider" />
 
 					<h3 className="rules-h3">Venue &amp; Presence</h3>
@@ -328,9 +311,9 @@ function RulesPage() {
 					</ol>
 				</section>
 
-				{/* 5. Judging Criteria */}
+				{/* 4. Judging Criteria */}
 				<section id="judging" data-section="judging" className="rules-section">
-					<h2 className="rules-h2">5. Judging Criteria</h2>
+					<h2 className="rules-h2">4. Judging Criteria</h2>
 					<hr className="rules-divider" />
 					<p>Projects will be assessed on the following criteria:</p>
 					<ul className="rules-list">
@@ -357,9 +340,9 @@ function RulesPage() {
 					</ul>
 				</section>
 
-				{/* 6. Intellectual Property */}
+				{/* 5. Intellectual Property */}
 				<section id="ip" data-section="ip" className="rules-section">
-					<h2 className="rules-h2">6. Intellectual Property</h2>
+					<h2 className="rules-h2">5. Intellectual Property</h2>
 					<hr className="rules-divider" />
 					<ul className="rules-list">
 						<li>
@@ -372,9 +355,9 @@ function RulesPage() {
 					</ul>
 				</section>
 
-				{/* 7. Prizes */}
+				{/* 6. Prizes */}
 				<section id="prizes" data-section="prizes" className="rules-section">
-					<h2 className="rules-h2">7. Prizes</h2>
+					<h2 className="rules-h2">6. Prizes</h2>
 					<hr className="rules-divider" />
 					<ul className="rules-list">
 						<li>
@@ -391,9 +374,9 @@ function RulesPage() {
 					</ul>
 				</section>
 
-				{/* 8. FAQs */}
+				{/* 7. FAQs */}
 				<section id="faq" data-section="faq" className="rules-section">
-					<h2 className="rules-h2">8. FAQs</h2>
+					<h2 className="rules-h2">7. FAQs</h2>
 					<hr className="rules-divider" />
 					<div className="rules-faq-list">
 						{[
@@ -452,9 +435,9 @@ function RulesPage() {
 					</div>
 				</section>
 
-				{/* 9. Contact */}
+				{/* 8. Contact */}
 				<section id="contact" data-section="contact" className="rules-section">
-					<h2 className="rules-h2">9. Contact</h2>
+					<h2 className="rules-h2">8. Contact</h2>
 					<hr className="rules-divider" />
 					<p>For any questions or clarifications, please reach out to:</p>
 					<ul className="rules-list rules-contact-list">
@@ -468,6 +451,7 @@ function RulesPage() {
 				<p className="rules-footer-note">
 					<em>SNUC Coding Club | SNUC Hacks '26</em>
 				</p>
+				</div>
 			</main>
 		</div>
 	);
