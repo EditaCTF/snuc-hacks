@@ -1,3 +1,5 @@
+import { Link } from "@tanstack/react-router";
+
 export default function Hero() {
 	return (
 		<section className="hero" id="hero">
@@ -28,6 +30,9 @@ export default function Hero() {
 								Register Now
 								<span className="btn-arrow">&rarr;</span>
 							</a>
+							<Link to="/rules" className="btn btn-outline">
+								Rulebook
+							</Link>
 						</div>
 					</div>
 

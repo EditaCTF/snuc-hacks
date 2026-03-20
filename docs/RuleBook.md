@@ -15,24 +15,7 @@ Open to all SNU & SSN students across all courses.
 Team size: 3–4 members.
 
 ---
-
-## 2. Timeline
-
-| Time | Event |
-|------|-------|
-| 25th March, 9:00 AM | Participants start arriving at venue |
-| 25th March, 9:30 AM | Problem Statements released |
-| 25th March, 10:00 AM | Team Leaders Meeting — rules clarification & Q&A |
-| 25th March, 3:00 PM | Round 1 Evaluation ends |
-| 26th March, 8:00 AM | Round 2 Evaluation ends (Tentative) |
-| 26th March, 10:00 AM | Finals begin |
-| 26th March, 2:00 - 3:00 PM | Finals conclude & Winners announced |
-
-**Note**: All the **Round Evaluations will be Eliminatory** in Nature
-
----
-
-## 3. Hackathon Format
+## 2. Hackathon Format
 
 ### Structure
 - **Problem Statements Released** at 9:30 AM on 25th March
@@ -41,14 +24,14 @@ Team size: 3–4 members.
 - **Finals** from 10:00 AM to 2:00 PM on 26th March
 
 ### Project Submission Requirements
-- A ppt describing the project, key features, and approach
+- A PPT describing the project, key features, and approach
 - A working prototype or demo
 - Source code hosted on a **public GitHub repository** with regular commits
 - A short demo video (3–5 minutes) showcasing the project's functionality
 
 ---
 
-## 4. Rules & Regulations
+## 3. Rules & Regulations
 
 ### Venue & Presence
 1. Students are not allowed to leave the venue (AB3) during night time. Movement within AB3 (corridors, common areas, open spaces, etc.) is permitted, but participants must not disturb others or cause disruption — **violation will result in disqualification**
@@ -94,11 +77,11 @@ Team size: 3–4 members.
 
 ---
 
-## 5. Judging Criteria
+## 4. Judging Criteria
 
 Projects will be assessed on the following criteria:
 
-- **Impact &]11;rgb:1a1a/1b1b/2626 Usefulness** — How effectively does the project address
+- **Impact & Usefulness** — How effectively does the project address
   the problem statement?
 - **Innovation & Creativity** — Does the solution bring fresh ideas
   or novel approaches?
@@ -110,82 +93,11 @@ Projects will be assessed on the following criteria:
 
 ---
 
-## 6. Intellectual Property
+## 5. Intellectual Property
 
 - Participants retain full ownership of their projects and code
 - By participating, you grant the organizers permission to showcase
   your project in event materials, social media, and websites
 
 ---
-
-## 7. Prizes
-
-- **Prize Pool: ₹50,000 INR**
-- Potential internship opportunities for top teams
-- All participants will receive a **digital certificate of participation**
-- Winners will receive special recognition at the closing ceremony
-
----
-
-## 8. FAQs
-
-**Q: Is it online or offline?**
-A: Offline! The event will take place in AB3, SNU Chennai.
-
-**Q: What are the timings?**
-A: The hack runs from 9:30 AM on 25th March to 8:00 AM on 26th March
-(24 hours), followed by evaluation rounds and finals till approximately
-2:00 PM on 26th March.
-
-**Q: Do we have to stay for the entire 24 hours?**
-A: Participants are expected to remain in the venue for the
-duration of the hackathon. Classrooms will be allocated for participants
-who wish to rest.
-
-**Q: Can day scholars sleep in AB3?**
-A: Yes, classrooms will be allocated for participants to rest in.
-
-**Q: What is the registration fee?**
-A: Free! Registration is completely free of charge.
-
-**Q: When does registration close?**
-A: Registrations open 18th March and close on 23rd March.
-
-**Q: Are there different tracks?**
-A: There are Problem Statements and Open Innovation — no strict tracks.
-You're free to expand your solutions beyond the baseline expectations
-of the PS as well.
-
-**Q: Will food be provided?**
-A: Refreshments will be provided to all participants. However, no meals
-such as lunch or dinner will be served — participants are encouraged to
-stock up on their own food and snacks.
-
-**Q: Will there be enough power outlets?**
-A: We will provide as many extension boards as we can. Teams are
-recommended to bring their own extension cords as well.
-
-**Q: Is this open to students outside SNU and SSN?**
-A: No, SNUC Hacks '26 is open only to SNU and SSN students.
-
-**Q: What about participants involved in Sports Day on 26th March?**
-A: We understand some participants may be involved in Sports Day
-activities. Affected teams can have available teammates present for
-judging, or coordinate their arrival time with the OC. Priority slots
-or post-1:00 PM judging can be arranged if needed — please reach out
-to the organizing committee in advance.
-
----
-
-## 9. Contact
-
-For any questions or clarifications, please reach out to:
-
-- Niranjhan SU — 8122152806
-- Prajesh Raam — 9489687324
-- Surya Narayanan — 9940537699
-- Vijayan S — 8080323242
-
----
-
 *SNUC Coding Club | SNUC Hacks '26*

@@ -1,9 +1,11 @@
-import { Link } from "@tanstack/react-router";
+import { Link, useLocation, useNavigate } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 export default function Nav() {
 	const [open, setOpen] = useState(false);
 	const [atTop, setAtTop] = useState(true);
+	const navigate = useNavigate();
+	const location = useLocation();
 
 	useEffect(() => {
 		const updateAtTop = () => {
@@ -20,7 +22,7 @@ export default function Nav() {
 
 	const closeMenu = () => setOpen(false);
 
-	const scrollTo = (id: string) => () => {
+	const doScroll = (id: string) => {
 		const el = document.getElementById(id);
 		const nav = document.querySelector(".nav") as HTMLElement | null;
 		if (el) {
@@ -29,7 +31,17 @@ export default function Nav() {
 				el.getBoundingClientRect().top + window.scrollY - navHeight + 4;
 			window.scrollTo({ top, behavior: "smooth" });
 		}
+	};
+
+	const scrollTo = (id: string) => () => {
 		closeMenu();
+		if (location.pathname !== "/") {
+			navigate({ to: "/" }).then(() => {
+				setTimeout(() => doScroll(id), 120);
+			});
+		} else {
+			doScroll(id);
+		}
 	};
 
 	return (
@@ -81,6 +93,9 @@ export default function Nav() {
 					<button type="button" onClick={scrollTo("contact")}>
 						Contact
 					</button>
+				</li>
+				<li>
+					<Link to="/rules">Rulebook</Link>
 				</li>
 			</ul>
 		</nav>
