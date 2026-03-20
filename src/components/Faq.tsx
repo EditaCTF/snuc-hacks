@@ -11,7 +11,7 @@ const faqs = [
 	},
 	{
 		q: "Do we have to stay for the entire 24 hours?",
-		a: "Participants are currently expected to remain in the venue for the duration of the hackathon. Classrooms will be allocated for participants who wish to sleep.",
+		a: "Participants are currently expected to remain in the venue for the duration of the hackathon. Classrooms will be allocated for participants who wish to sleep. Hostellers are not allowed to go back to their rooms as well",
 	},
 	{
 		q: "Can day scholars sleep in AB3?",
