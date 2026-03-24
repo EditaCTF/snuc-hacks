@@ -456,7 +456,7 @@ function RulesPage() {
                 },
                 {
                   q: "Are there different tracks?",
-                  a: "There are Problem Statements and Open Innovation — no strict tracks. You're free to expand your solutions beyond the baseline expectations of the PS as well.",
+                  a: "There are Problem Statements — no strict tracks. You're free to expand your solutions beyond the baseline expectations of the PS as well.",
                 },
                 {
                   q: "Will food be provided?",

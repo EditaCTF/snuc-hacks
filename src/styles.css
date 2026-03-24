@@ -491,6 +491,13 @@ body:has(.page) {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
+.btn-primary:disabled,
+.btn-primary:disabled:hover {
+  transform: none;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  cursor: not-allowed;
+}
+
 .btn-arrow {
   transition: transform 0.3s ease;
   font-size: 1.1em;
@@ -498,6 +505,11 @@ body:has(.page) {
 
 .btn-primary:hover .btn-arrow {
   transform: translateX(4px);
+}
+
+.btn-primary:disabled .btn-arrow,
+.btn-primary:disabled:hover .btn-arrow {
+  transform: none;
 }
 
 .btn-outline {
