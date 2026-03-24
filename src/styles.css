@@ -945,18 +945,24 @@ body:has(.page) {
   transform: translateX(6px);
 }
 
-.timeline-item.highlight {
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.28);
+.timeline-item.completed {
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  opacity: 0.35;
 }
 
-.timeline-item.highlight .timeline-dot {
-  animation: dotGlow 2s ease-in-out infinite;
+.timeline-item.completed .timeline-dot {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: none;
 }
 
-.timeline-item.highlight:first-of-type .timeline-dot {
-  background: rgba(255, 255, 255, 0.95);
-  animation: dotGlowWhite 2s ease-in-out infinite;
+.timeline-item.completed .timeline-time .time-main,
+.timeline-item.completed .timeline-time .day {
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.timeline-item.completed .timeline-content {
+  color: rgba(255, 255, 255, 0.25);
 }
 
 .timeline-time {

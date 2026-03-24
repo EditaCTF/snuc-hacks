@@ -35,8 +35,8 @@ const faqs = [
 		a: "Refreshments will be provided to all participants. However, no meals such as lunch or dinner will be served — participants are encouraged to stock up on their own food and snacks.",
 	},
 	{
-		q: "Will there be enough power outlets?",
-		a: "We will provide as many extension boards as we can. Teams are recommended to bring their own extension cords as well.",
+		q: "Will there be enough charging ports and power outlets?",
+		a: "We'll do our best to ensure adequate power access for everyone. That said, we strongly recommend bringing your own extension cords and charging cables — it's a hackathon, and you really don't want to run out of juice.",
 	},
 	{
 		q: "Is this open to students outside SNU and SSN?",
@@ -66,6 +66,7 @@ export default function Faq() {
 					"What is the registration fee?",
 					"Will food be provided?",
 					"Is this open to students outside SNU and SSN?",
+					"Will there be enough charging ports and power outlets?",
 				].includes(item.q)).map((item, i) => {
 						const isOpen = activeIndex === i;
 						return (

@@ -7,19 +7,19 @@ export default function Prizes() {
 				</div>
 				<div className="prizes-grid">
 					<div className="prize-card reveal">
-						<span className="place">2ND</span>
-						<span className="amount">&#8377;15,000</span>
-						<span className="desc">Runner Up</span>
-					</div>
-					<div className="prize-card featured reveal">
-						<span className="place">1ST</span>
-						<span className="amount">&#8377;20,000</span>
-						<span className="desc">Grand Prize</span>
+						<span className="place">Domain 1</span>
+						<span className="amount">TBD</span>
+						<span className="desc">Prizes</span>
 					</div>
 					<div className="prize-card reveal">
-						<span className="place">3RD</span>
-						<span className="amount">&#8377;10,000</span>
-						<span className="desc">Second Runner Up</span>
+						<span className="place">Domain 2</span>
+						<span className="amount">TBD</span>
+						<span className="desc">Prizes</span>
+					</div>
+					<div className="prize-card reveal">
+						<span className="place">Domain 3</span>
+						<span className="amount">TBD</span>
+						<span className="desc">Prizes</span>
 					</div>
 				</div>
 				<div className="prizes-grid prizes-special">
@@ -29,9 +29,9 @@ export default function Prizes() {
 						<span className="desc">Special Award</span>
 					</div>
 					<div className="prize-card special reveal">
-						<span className="place">Best Fresher Team</span>
+						<span className="place">Rookie Award</span>
 						<span className="amount">&#8377;2,500</span>
-						<span className="desc">Newbie Award</span>
+						<span className="desc">Special Award</span>
 					</div>
 				</div>
 			</div>
