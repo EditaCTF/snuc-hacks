@@ -33,6 +33,14 @@ export default function Hero() {
 							<Link to="/rules" className="btn btn-outline">
 								Rulebook
 							</Link>
+							<a
+								href="/SNUC Hacks 26' - Problem Statements.pdf"
+								className="btn btn-outline"
+								target="_blank"
+								rel="noreferrer"
+							>
+								Problem Statements
+							</a>
 						</div>
 					</div>
 

@@ -457,9 +457,14 @@ body:has(.page) {
 
 .hero-cta {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   gap: 1rem;
   margin-top: 0.5rem;
+}
+
+.hero-cta .btn {
+  white-space: nowrap;
 }
 
 .btn {
@@ -1498,6 +1503,7 @@ body:has(.page) {
   .hero-cta .btn {
     width: 100%;
     justify-content: center;
+    white-space: normal;
   }
 
   .page .nav.at-top.menu-open {

@@ -114,6 +114,13 @@ function RulesPage() {
         </nav>
 
         <div className="rules-sidebar-utils">
+          <a
+            href="/SNUC Hacks 26' - Problem Statements.pdf"
+            target="_blank"
+            rel="noreferrer"
+          >
+            View Problem Statements
+          </a>
           <button
             type="button"
             onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
