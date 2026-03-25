@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TARGET = Date.UTC(2026, 2, 25, 4, 0, 0);
+const TARGET = Date.UTC(2026, 2, 26, 8, 30, 0); // 2 PM IST = 08:30 UTC
 
 function pad(n: number) {
 	return String(n).padStart(2, "0");
@@ -29,7 +29,7 @@ export default function Countdown() {
 		<section className="countdown-section" id="countdown">
 			<div className="countdown-inner">
 				<h2 className="countdown-title reveal">
-					Hackathon Begins <span>In</span>
+					Hackathon Ends <span>In</span>
 				</h2>
 				<div className="countdown-grid reveal">
 					<div className="countdown-box day-box">
