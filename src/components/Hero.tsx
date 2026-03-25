@@ -21,15 +21,10 @@ export default function Hero() {
 						<p className="hero-tagline">24 Hours+ Hackathon - Build Solutions with Real Impact</p>
 
 						<div className="hero-cta">
-							<a
-								href="https://forms.cloud.microsoft/r/h0Cy8tHzkc"
-								className="btn btn-primary"
-								target="_blank"
-								rel="noreferrer"
-							>
-								Register Now
+							<button type="button" className="btn btn-primary" disabled>
+								Registrations Closed
 								<span className="btn-arrow">&rarr;</span>
-							</a>
+							</button>
 							<Link to="/rules" className="btn btn-outline">
 								Rulebook
 							</Link>
