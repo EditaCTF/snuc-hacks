@@ -36,9 +36,15 @@ const events = [
 		highlight: false,
 	},
 	{
+		time: "07:30 AM",
+		day: "Mar 26",
+		label: "Round 2 Evaluation and Form Submission ends",
+		highlight: false,
+	},
+	{
 		time: "08:30 AM",
 		day: "Mar 26",
-		label: "Round 2 Evaluation ends",
+		label: "Finalists announced",
 		highlight: false,
 	},
 	{
