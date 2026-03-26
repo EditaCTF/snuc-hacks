@@ -54,7 +54,7 @@ const events = [
 		highlight: false,
 	},
 	{
-		time: "03:30 PM",
+		time: "04:00 PM",
 		day: "Mar 26",
 		label: "Finals conclude & Winners announced",
 		highlight: false,
