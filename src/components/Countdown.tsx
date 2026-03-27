@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-const TARGET = Date.UTC(2026, 2, 26, 8, 30, 0); // 2 PM IST = 08:30 UTC
+const TARGET = Date.UTC(2026, 2, 26, 10, 0, 0); // 2 PM IST = 08:30 UTC
 
 function pad(n: number) {
 	return String(n).padStart(2, "0");
