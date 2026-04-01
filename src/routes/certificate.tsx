@@ -1,9 +1,10 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { createServerFn } from "@tanstack/react-start";
-import { readdirSync, readFileSync } from "node:fs";
-import { join } from "node:path";
 import { useState } from "react";
 import Nav from "../components/Nav";
+import finalistsMapping from "../../sessions/mappings/mapping_Finalists_20260331_225128.json";
+import participantsMapping from "../../sessions/mappings/mapping_Participants_20260330_204935.json";
+import manualMapping from "../../sessions/mappings/mapping_manual.json";
 
 interface CertEntry {
   name: string;
@@ -27,40 +28,30 @@ const lookupCertificate = createServerFn({ method: "GET" })
     return { regNumber: reg.trim() };
   })
   .handler(async ({ data }): Promise<LookupResult> => {
-    const dir = join(process.cwd(), "sessions", "mappings");
-    let files: string[];
-    try {
-      files = readdirSync(dir).filter((f) => f.endsWith(".json"));
-    } catch {
-      return {
-        found: false,
-        entries: [],
-        error: "Certificate data unavailable.",
-      };
-    }
+    const mappings = [finalistsMapping, participantsMapping, manualMapping];
+    const regNum = data.regNumber;
+    const regNumNoSpace = regNum.replace(/\s+/g, "");
 
     const results: CertEntry[] = [];
-    for (const file of files) {
-      try {
-        const mapping = JSON.parse(readFileSync(join(dir, file), "utf-8"));
-        const regNum = data.regNumber;
-        const regNumNoSpace = regNum.replace(/\s+/g, "");
-        const matches: CertEntry[] =
-          mapping.certificates?.[regNum] ??
-          mapping.certificates?.[regNumNoSpace] ??
-          [];
-        for (const entry of matches) {
-          const p = String(entry.pdf_path ?? "");
-          if (
-            p.includes("..") ||
-            !p.startsWith("/certificates/") ||
-            !p.endsWith(".pdf")
-          )
-            continue;
-          results.push({ ...entry, session: mapping.session_name });
-        }
-      } catch {
-        // skip malformed mapping files
+    for (const mapping of mappings) {
+      const certs = (mapping as Record<string, unknown>).certificates as
+        | Record<string, CertEntry[]>
+        | undefined;
+      if (!certs) continue;
+      const matches: CertEntry[] =
+        certs[regNum] ?? certs[regNumNoSpace] ?? [];
+      for (const entry of matches) {
+        const p = String(entry.pdf_path ?? "");
+        if (
+          p.includes("..") ||
+          !p.startsWith("/certificates/") ||
+          !p.endsWith(".pdf")
+        )
+          continue;
+        results.push({
+          ...entry,
+          session: (mapping as Record<string, unknown>).session_name as string,
+        });
       }
     }
 
