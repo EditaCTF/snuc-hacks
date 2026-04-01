@@ -1,5 +1,4 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
-import { createServerFn } from "@tanstack/react-start";
 import { useState } from "react";
 import Nav from "../components/Nav";
 import finalistsMapping from "../../sessions/mappings/mapping_Finalists_20260331_225128.json";
@@ -17,46 +16,37 @@ interface CertEntry {
 interface LookupResult {
   found: boolean;
   entries: CertEntry[];
-  error?: string;
 }
 
-const lookupCertificate = createServerFn({ method: "GET" })
-  .inputValidator((input: unknown) => {
-    const reg = (input as Record<string, unknown>)?.regNumber;
-    if (typeof reg !== "string" || !reg.trim())
-      throw new Error("Invalid input");
-    return { regNumber: reg.trim() };
-  })
-  .handler(async ({ data }): Promise<LookupResult> => {
-    const mappings = [finalistsMapping, participantsMapping, manualMapping];
-    const regNum = data.regNumber;
-    const regNumNoSpace = regNum.replace(/\s+/g, "");
+type MappingFile = {
+  session_name: string;
+  certificates: Record<string, CertEntry[]>;
+};
 
-    const results: CertEntry[] = [];
-    for (const mapping of mappings) {
-      const certs = (mapping as Record<string, unknown>).certificates as
-        | Record<string, CertEntry[]>
-        | undefined;
-      if (!certs) continue;
-      const matches: CertEntry[] =
-        certs[regNum] ?? certs[regNumNoSpace] ?? [];
-      for (const entry of matches) {
-        const p = String(entry.pdf_path ?? "");
-        if (
-          p.includes("..") ||
-          !p.startsWith("/certificates/") ||
-          !p.endsWith(".pdf")
-        )
-          continue;
-        results.push({
-          ...entry,
-          session: (mapping as Record<string, unknown>).session_name as string,
-        });
-      }
+const MAPPINGS = [finalistsMapping, participantsMapping, manualMapping] as MappingFile[];
+
+function lookup(regNumber: string): LookupResult {
+  const regNum = regNumber.trim();
+  const regNumNoSpace = regNum.replace(/\s+/g, "");
+  const results: CertEntry[] = [];
+
+  for (const mapping of MAPPINGS) {
+    const certs = mapping.certificates;
+    const matches: CertEntry[] = certs[regNum] ?? certs[regNumNoSpace] ?? [];
+    for (const entry of matches) {
+      const p = String(entry.pdf_path ?? "");
+      if (
+        p.includes("..") ||
+        !p.startsWith("/certificates/") ||
+        !p.endsWith(".pdf")
+      )
+        continue;
+      results.push({ ...entry, session: mapping.session_name });
     }
+  }
 
-    return { found: results.length > 0, entries: results };
-  });
+  return { found: results.length > 0, entries: results };
+}
 
 export const Route = createFileRoute("/certificate")({
   head: () => ({ meta: [{ title: "Certificates | SNUC Hacks '26" }] }),
@@ -66,29 +56,16 @@ export const Route = createFileRoute("/certificate")({
 function CertificatePage() {
   const [regNumber, setRegNumber] = useState("");
   const [result, setResult] = useState<LookupResult | null>(null);
-  const [loading, setLoading] = useState(false);
-  const [fetchError, setFetchError] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
 
-  const handleSearch = async (e: React.FormEvent) => {
+  const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
     if (!regNumber.trim()) return;
-    setLoading(true);
-    setFetchError(null);
-    setResult(null);
+    setResult(lookup(regNumber));
     setSubmitted(true);
-    try {
-      const data = await lookupCertificate({ data: { regNumber } });
-      setResult(data);
-    } catch {
-      setFetchError("Something went wrong. Please try again.");
-    } finally {
-      setLoading(false);
-    }
   };
 
-  const hasResult = submitted && !loading && (result || fetchError);
-  const errorMsg = fetchError ?? result?.error;
+  const hasResult = submitted && result !== null;
 
   return (
     <div className="page cert-page">
@@ -136,18 +113,18 @@ function CertificatePage() {
                   onChange={(e) => setRegNumber(e.target.value)}
                   autoComplete="off"
                   spellCheck={false}
-                  disabled={loading}
                   aria-label="Registration number"
                 />
                 <div className="cert-form-actions">
                   <button
                     type="submit"
                     className="btn btn-primary"
-                    disabled={loading || !regNumber.trim()}
+                    disabled={!regNumber.trim()}
                   >
-                    {loading ? "Searching..." : "Look Up"}
+                    Look Up
                     <span className="btn-arrow">&rarr;</span>
                   </button>
+                  <Link to="/" className="btn btn-outline">Home</Link>
                 </div>
               </form>
             </div>
@@ -156,17 +133,7 @@ function CertificatePage() {
             <div className="cert-hero-right">
               {!hasResult ? (
                 <div className="cert-right-empty" aria-hidden="true" />
-              ) : errorMsg ? (
-                <div className="cert-results">
-                  <h2 className="cert-results-heading">
-                    Not <span className="gradient">found</span>
-                  </h2>
-                  <p className="cert-results-body">
-                    No certificate is linked to that registration number.
-                    Double-check your number and try again.
-                  </p>
-                </div>
-              ) : result?.found ? (
+              ) : result.found ? (
                 <div className="cert-results">
                   <div className="cert-results-top">
                     <h2 className="cert-results-heading">
