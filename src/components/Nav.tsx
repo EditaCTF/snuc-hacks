@@ -97,6 +97,9 @@ export default function Nav() {
 				<li>
 					<Link to="/rules">Rulebook</Link>
 				</li>
+				<li>
+					<Link to="/certificate">Certificates</Link>
+				</li>
 			</ul>
 		</nav>
 	);

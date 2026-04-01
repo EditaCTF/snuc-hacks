@@ -36,6 +36,9 @@ export default function Hero() {
 							>
 								Problem Statements
 							</a>
+							<Link to="/certificate" className="btn btn-outline">
+								Certificates
+							</Link>
 						</div>
 					</div>
 

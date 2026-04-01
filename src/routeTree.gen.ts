@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as RulesRouteImport } from './routes/rules'
 import { Route as PsRouteImport } from './routes/ps'
+import { Route as CertificateRouteImport } from './routes/certificate'
 import { Route as SplatRouteImport } from './routes/$'
 import { Route as IndexRouteImport } from './routes/index'
 
@@ -22,6 +23,11 @@ const RulesRoute = RulesRouteImport.update({
 const PsRoute = PsRouteImport.update({
   id: '/ps',
   path: '/ps',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CertificateRoute = CertificateRouteImport.update({
+  id: '/certificate',
+  path: '/certificate',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SplatRoute = SplatRouteImport.update({
@@ -38,12 +44,14 @@ const IndexRoute = IndexRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/certificate': typeof CertificateRoute
   '/ps': typeof PsRoute
   '/rules': typeof RulesRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/certificate': typeof CertificateRoute
   '/ps': typeof PsRoute
   '/rules': typeof RulesRoute
 }
@@ -51,20 +59,22 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/$': typeof SplatRoute
+  '/certificate': typeof CertificateRoute
   '/ps': typeof PsRoute
   '/rules': typeof RulesRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/$' | '/ps' | '/rules'
+  fullPaths: '/' | '/$' | '/certificate' | '/ps' | '/rules'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/$' | '/ps' | '/rules'
-  id: '__root__' | '/' | '/$' | '/ps' | '/rules'
+  to: '/' | '/$' | '/certificate' | '/ps' | '/rules'
+  id: '__root__' | '/' | '/$' | '/certificate' | '/ps' | '/rules'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   SplatRoute: typeof SplatRoute
+  CertificateRoute: typeof CertificateRoute
   PsRoute: typeof PsRoute
   RulesRoute: typeof RulesRoute
 }
@@ -83,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/ps'
       fullPath: '/ps'
       preLoaderRoute: typeof PsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/certificate': {
+      id: '/certificate'
+      path: '/certificate'
+      fullPath: '/certificate'
+      preLoaderRoute: typeof CertificateRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/$': {
@@ -105,6 +122,7 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   SplatRoute: SplatRoute,
+  CertificateRoute: CertificateRoute,
   PsRoute: PsRoute,
   RulesRoute: RulesRoute,
 }
